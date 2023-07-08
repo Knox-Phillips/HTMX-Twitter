@@ -31,7 +31,7 @@ app.ws("/tweet", function (ws, req) {
   // Generate a unique name for the user
   const name = connectedUsers[userId] ? connectedUsers[userId] : chance.name();
   connectedUsers[userId] = name;
-    ws.send(`<h5 style="margin-bottom:5px;" hx-swap-oob="afterend:#username">${connectedUsers[userId]}</h5>`)
+    ws.send(`<h5 style="margin-bottom:5px;" hx-swap-oob="innerHTML:#username">Username: ${connectedUsers[userId]}</h5>`)
   ws.on("message", function (msg) {
     const { message, name } = JSON.parse(msg);
     let id = v4();
