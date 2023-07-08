@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script
+      src="https://unpkg.com/htmx.org@1.9.2"
+      integrity="sha384-L6OqL9pRWyyFU3+/bjdSri+iIphTN/bvYyM37tICVyOJkWZLpP2vGn6VUEXgzg6h"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/htmx.org/dist/ext/ws.js"></script>
+    <script
+      src="https://kit.fontawesome.com/3232dc6896.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="./index.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Twitter Clone</title>
+  </head>
+  <body>
+    <main id="container" hx-ws="connect:/tweet">
+      <div id="content">
+        <div id="hero">
+          <h1>htmx-twitter</h1>
+          <p>
+            A Twitter clone in
+            <a href="https://htmx.org/" target="_blank">htmx</a> and Node
+          </p>
+        </div>
+        <div id="userDiv"><h3 id="username">Your Username is:</h3></div>
+        <form id="form" hx-ws="send:message">
+          <div class="form-input">
+            <label for="message">Message:</label>
+            <input name="message" placeholder="Message" />
+          </div>
+
+          <button id="submitButton"><p style="padding: 10px">Tweet</p></button>
+        </form>
+      </div>
+      <div id="posts">
+        <div
+          hx-swap="innerHTML"
+          hx-trigger="load"
+          hx-indicator=".loading-spinner"
+          id="Chilling"
+        ></div>
+        <div id="loadingSpinner" class="loading-spinner">
+          <div class="lds-spinner">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
