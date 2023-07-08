@@ -10,7 +10,7 @@ npm install
 npm start
 ```
 
-You can view the application in `localhost:3000`
+You can view the application in `localhost:8080`
 
 
 ![demo gif](demo.gif)
